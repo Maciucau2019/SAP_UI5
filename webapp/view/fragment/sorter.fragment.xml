@@ -1,0 +1,17 @@
+<core:FragmentDefinition 
+  xmlns:core="sap.ui.core" 
+  xmlns="sap.m"
+  xmlns:c="sap.ui.core"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:ui="sap.ui">
+  <ViewSettingsDialog confirm="onConfirmSort">
+    <sortItems>
+      <ViewSettingsItem key="ISBN" text="{i18n>isbn}" selected="true"/>
+      <ViewSettingsItem key="Title" text="{i18n>title}"/>
+      <ViewSettingsItem key="Author" text="{i18n>author}"/>
+      <ViewSettingsItem key="Language" text="{i18n>language}"/>
+      <ViewSettingsItem key="DatePublished" text="{i18n>publishedOn}"/>
+    </sortItems>
+  </ViewSettingsDialog>
+</core:FragmentDefinition>

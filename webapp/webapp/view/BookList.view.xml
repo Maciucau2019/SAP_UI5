@@ -1,0 +1,79 @@
+<mvc:View
+	controllerName="org.ubb.books.controller.BookList"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+
+   <Table id="idBooksTable"
+		items="{
+			path: '/Books',
+			sorter: {
+				path: 'Title'
+			}
+		}"
+		growing="true"
+		growingThreshold="10"
+		mode="SingleSelectLeft"
+		>
+
+		<headerToolbar>
+            <Toolbar>
+            <ToolbarSpacer></ToolbarSpacer>
+                <content>
+                    <Button
+                        text="{i18n>deleteButton}"
+                        press="onDeleteBook"
+                    />
+                    <Button
+                        text="{i18n>addButton}"
+                        press="onInsertBook"
+                    />
+                    <Button
+                        text="{i18n>updateButton}"
+                        press="onUpdateBook"
+                    />
+					<Button
+						text="{i18n>checkoutButton}"
+						press="onCheckoutBook"
+					/>
+                </content>
+            </Toolbar>
+        </headerToolbar>
+	
+		<columns>
+			<Column>
+				<Text text="{i18n>title}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>author}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>publishedOn}" />
+			</Column>
+			<Column>
+				<Text text="{i18n>language}" />
+			</Column>
+         	<Column>
+				<Text text="{i18n>availableNr}" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier
+						title="{Title}"
+						text="{ISBN}"/>
+					<Text text="{Author}" />
+					<Text text="{ 
+							path: 'DatePublished',
+							type: 'sap.ui.model.type.Date'
+               			}" 
+					/>
+					<Text text="{Language}" />
+					<Text text="{= parseInt(${AvailableNumber}) }" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+   
+</mvc:View>
